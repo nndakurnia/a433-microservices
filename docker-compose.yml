@@ -1,0 +1,41 @@
+version: "3.8" # versi docker compose (minim versi 2)
+
+# memiliki 2 services, item-app dan item-db
+services:
+  item-app:
+    container_name: item-app # nama container yg akan dibuat
+    image: ghcr.io/nndakurnia/item-app:v1 # use image dari github packages yg sudah dibuat
+    ports:
+      - 80:8080 # ekspos port 80 untuk host, 8080 container
+    depends_on:
+      - item-db # agar item-app berjalan sertelah item-db diluncurkan
+    networks:
+      - item-app-network # menggunakan network yg telah dibuat (opsional)
+    working_dir: /app # menetapkan /app pd container sbg working directory
+    volumes:
+      - ./:/app # menggunakan bind mount untuk memasang current directory di host
+    environment:
+      DB_HOST: item-db # container db host yg digunakan
+      MONGODB_URI: mongodb://item_db:27017 # connect to mongo db yg ada di dalam container
+      DB_NAME: item_db # definisikan nama db
+    restart: always # restart policy agar container selalu restart ketika stop
+
+  item-db:
+    container_name: item-db # nama container db yg akan dibuat
+    image: mongo:3 # use image mongo:3 untuk database mongo
+    ports:
+      - 27017:27017 # ekspos port db
+    volumes:
+      - app-db:/data/db # use volume app-db dg target /data/db di container
+    networks:
+      - item-app-network # use same network with item-app
+    restart: always # restart policy agar container selalu restart ketika stop
+
+# membuat volume bernama app-db untuk dipakai database
+volumes:
+  app-db:
+
+# membuat custom network untuk dipakai item-app dan item-db
+networks:
+  item-app-network:
+    driver: bridge # tipe bridge

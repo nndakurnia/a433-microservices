@@ -1,0 +1,5 @@
+tautan GitHub Packages
+https://github.com/users/nndakurnia/packages/container/package/item-app
+
+to use
+docker pull ghcr.io/nndakurnia/item-app:v1
