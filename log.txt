@@ -1,53 +1,47 @@
-2023-09-20 22:18:08 item-db   | 2023-09-20T15:18:08.743+0000 I CONTROL  [initandlisten] MongoDB starting : pid=1 port=27017 dbpath=/data/db 64-bit host=b4050ff59629
-2023-09-20 22:18:08 item-db   | 2023-09-20T15:18:08.745+0000 I CONTROL  [initandlisten] db version v3.6.23
-2023-09-20 22:18:08 item-db   | 2023-09-20T15:18:08.745+0000 I CONTROL  [initandlisten] git version: d352e6a4764659e0d0350ce77279de3c1f243e5c
-2023-09-20 22:18:08 item-db   | 2023-09-20T15:18:08.745+0000 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2g  1 Mar 2016
-2023-09-20 22:18:08 item-db   | 2023-09-20T15:18:08.745+0000 I CONTROL  [initandlisten] allocator: tcmalloc
-2023-09-20 22:18:08 item-db   | 2023-09-20T15:18:08.745+0000 I CONTROL  [initandlisten] modules: none
-2023-09-20 22:18:08 item-db   | 2023-09-20T15:18:08.745+0000 I CONTROL  [initandlisten] build environment:
-2023-09-20 22:18:08 item-db   | 2023-09-20T15:18:08.745+0000 I CONTROL  [initandlisten]     distmod: ubuntu1604
-2023-09-20 22:18:08 item-db   | 2023-09-20T15:18:08.745+0000 I CONTROL  [initandlisten]     distarch: x86_64
-2023-09-20 22:18:08 item-db   | 2023-09-20T15:18:08.745+0000 I CONTROL  [initandlisten]     target_arch: x86_64
-2023-09-20 22:18:08 item-db   | 2023-09-20T15:18:08.745+0000 I CONTROL  [initandlisten] options: { net: { bindIpAll: true } }
-2023-09-20 22:18:08 item-db   | 2023-09-20T15:18:08.752+0000 I -        [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
-2023-09-20 22:18:08 item-db   | 2023-09-20T15:18:08.752+0000 I STORAGE  [initandlisten] 
-2023-09-20 22:18:08 item-db   | 2023-09-20T15:18:08.752+0000 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
-2023-09-20 22:18:08 item-db   | 2023-09-20T15:18:08.752+0000 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
-2023-09-20 22:18:08 item-db   | 2023-09-20T15:18:08.753+0000 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=831M,cache_overflow=(file_max=0M),session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),compatibility=(release="3.0",require_max="3.0"),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
-2023-09-20 22:18:10 item-db   | 2023-09-20T15:18:10.610+0000 I STORAGE  [initandlisten] WiredTiger message [1695223090:610318][1:0x7f7152beda40], txn-recover: Main recovery loop: starting at 9/8704
-2023-09-20 22:18:10 item-db   | 2023-09-20T15:18:10.818+0000 I STORAGE  [initandlisten] WiredTiger message [1695223090:818817][1:0x7f7152beda40], txn-recover: Recovering log 9 through 10
-2023-09-20 22:18:10 item-db   | 2023-09-20T15:18:10.932+0000 I STORAGE  [initandlisten] WiredTiger message [1695223090:932822][1:0x7f7152beda40], txn-recover: Recovering log 10 through 10
-2023-09-20 22:18:11 item-db   | 2023-09-20T15:18:11.013+0000 I STORAGE  [initandlisten] WiredTiger message [1695223091:13945][1:0x7f7152beda40], txn-recover: Set global recovery timestamp: 0
-2023-09-20 22:18:11 item-db   | 2023-09-20T15:18:11.053+0000 I CONTROL  [initandlisten] 
-2023-09-20 22:18:11 item-db   | 2023-09-20T15:18:11.053+0000 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
-2023-09-20 22:18:11 item-db   | 2023-09-20T15:18:11.053+0000 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
-2023-09-20 22:18:11 item-db   | 2023-09-20T15:18:11.053+0000 I CONTROL  [initandlisten] 
-2023-09-20 22:18:11 item-db   | 2023-09-20T15:18:11.054+0000 I CONTROL  [initandlisten] 
-2023-09-20 22:18:11 item-db   | 2023-09-20T15:18:11.054+0000 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
-2023-09-20 22:18:11 item-db   | 2023-09-20T15:18:11.054+0000 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
-2023-09-20 22:18:11 item-db   | 2023-09-20T15:18:11.054+0000 I CONTROL  [initandlisten] 
-2023-09-20 22:18:11 item-db   | 2023-09-20T15:18:11.096+0000 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
-2023-09-20 22:18:11 item-db   | 2023-09-20T15:18:11.099+0000 I NETWORK  [initandlisten] listening via socket bound to 0.0.0.0
-2023-09-20 22:18:11 item-db   | 2023-09-20T15:18:11.100+0000 I NETWORK  [initandlisten] listening via socket bound to /tmp/mongodb-27017.sock
-2023-09-20 22:18:11 item-db   | 2023-09-20T15:18:11.100+0000 I NETWORK  [initandlisten] waiting for connections on port 27017
-2023-09-20 22:18:15 item-db   | 2023-09-20T15:18:15.683+0000 I NETWORK  [listener] connection accepted from 172.19.0.3:44014 #1 (1 connection now open)
-2023-09-20 22:18:15 item-db   | 2023-09-20T15:18:15.702+0000 I NETWORK  [conn1] received client metadata from 172.19.0.3:44014 conn1: { driver: { name: "nodejs", version: "2.2.36" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "5.10.16.3-microsoft-standard-WSL2" }, platform: "Node.js v14.21.3, LE, mongodb-core: 2.1.20" }
-2023-09-20 22:29:48 item-db   | 2023-09-20T15:29:48.499+0000 I NETWORK  [conn1] end connection 172.19.0.3:44014 (0 connections now open)
-2023-09-20 22:29:59 item-db   | 2023-09-20T15:29:59.993+0000 I NETWORK  [listener] connection accepted from 172.19.0.3:44100 #2 (1 connection now open)
-2023-09-20 22:30:00 item-db   | 2023-09-20T15:30:00.027+0000 I NETWORK  [conn2] received client metadata from 172.19.0.3:44100 conn2: { driver: { name: "nodejs", version: "2.2.36" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "5.10.16.3-microsoft-standard-WSL2" }, platform: "Node.js v14.21.3, LE, mongodb-core: 2.1.20" }
-2023-09-20 22:29:53 item-app  | 
-2023-09-20 22:29:53 item-app  | > docker-software-delivery@1.0.0 start /app
-2023-09-20 22:29:53 item-app  | > node ./bin/www
-2023-09-20 22:29:53 item-app  | 
-2023-09-20 22:29:59 item-app  | NODE_ENV: production
-2023-09-20 22:30:00 item-app  | Connected to database
-2023-09-20 22:30:33 item-app  | GET / 304 4782.478 ms - -
-2023-09-20 22:30:33 item-app  | GET /javascripts/dist/dist.min.js 304 41.837 ms - -
-2023-09-20 22:30:33 item-app  | GET /stylesheets/style.css 200 66.716 ms - 519
-2023-09-20 22:30:33 item-app  | GET /favicon.ico 404 25.040 ms - 270
-2023-09-20 22:30:33 item-app  | GET /api 200 61.025 ms - 464
-2023-09-20 22:30:40 item-app  | POST /api 201 108.264 ms - 54
-2023-09-20 22:30:43 item-app  | GET / 304 8.581 ms - -
-2023-09-20 22:30:43 item-app  | GET /javascripts/dist/dist.min.js 304 6.021 ms - -
-2023-09-20 22:30:43 item-app  | GET /stylesheets/style.css 304 13.810 ms - -
-2023-09-20 22:30:43 item-app  | GET /api 200 7.843 ms - 519
+2023-09-21 10:12:30 item-db   | 2023-09-21T03:12:30.887+0000 I CONTROL  [initandlisten] MongoDB starting : pid=1 port=27017 dbpath=/data/db 64-bit host=649e71252b81
+2023-09-21 10:12:30 item-db   | 2023-09-21T03:12:30.896+0000 I CONTROL  [initandlisten] db version v3.6.23
+2023-09-21 10:12:30 item-db   | 2023-09-21T03:12:30.897+0000 I CONTROL  [initandlisten] git version: d352e6a4764659e0d0350ce77279de3c1f243e5c
+2023-09-21 10:12:30 item-db   | 2023-09-21T03:12:30.897+0000 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2g  1 Mar 2016
+2023-09-21 10:12:30 item-db   | 2023-09-21T03:12:30.897+0000 I CONTROL  [initandlisten] allocator: tcmalloc
+2023-09-21 10:12:30 item-db   | 2023-09-21T03:12:30.897+0000 I CONTROL  [initandlisten] modules: none
+2023-09-21 10:12:30 item-db   | 2023-09-21T03:12:30.897+0000 I CONTROL  [initandlisten] build environment:
+2023-09-21 10:12:30 item-db   | 2023-09-21T03:12:30.897+0000 I CONTROL  [initandlisten]     distmod: ubuntu1604
+2023-09-21 10:12:30 item-db   | 2023-09-21T03:12:30.897+0000 I CONTROL  [initandlisten]     distarch: x86_64
+2023-09-21 10:12:30 item-db   | 2023-09-21T03:12:30.897+0000 I CONTROL  [initandlisten]     target_arch: x86_64
+2023-09-21 10:12:30 item-db   | 2023-09-21T03:12:30.898+0000 I CONTROL  [initandlisten] options: { net: { bindIpAll: true } }
+2023-09-21 10:12:30 item-db   | 2023-09-21T03:12:30.906+0000 I -        [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2023-09-21 10:12:30 item-db   | 2023-09-21T03:12:30.907+0000 I STORAGE  [initandlisten] 
+2023-09-21 10:12:30 item-db   | 2023-09-21T03:12:30.907+0000 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+2023-09-21 10:12:30 item-db   | 2023-09-21T03:12:30.907+0000 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+2023-09-21 10:12:30 item-db   | 2023-09-21T03:12:30.908+0000 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=831M,cache_overflow=(file_max=0M),session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),compatibility=(release="3.0",require_max="3.0"),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
+2023-09-21 10:12:33 item-db   | 2023-09-21T03:12:33.763+0000 I STORAGE  [initandlisten] WiredTiger message [1695265953:762966][1:0x7fae6d66fa40], txn-recover: Main recovery loop: starting at 13/6400
+2023-09-21 10:12:33 item-db   | 2023-09-21T03:12:33.962+0000 I STORAGE  [initandlisten] WiredTiger message [1695265953:962856][1:0x7fae6d66fa40], txn-recover: Recovering log 13 through 14
+2023-09-21 10:12:34 item-db   | 2023-09-21T03:12:34.065+0000 I STORAGE  [initandlisten] WiredTiger message [1695265954:65391][1:0x7fae6d66fa40], txn-recover: Recovering log 14 through 14
+2023-09-21 10:12:34 item-db   | 2023-09-21T03:12:34.144+0000 I STORAGE  [initandlisten] WiredTiger message [1695265954:144808][1:0x7fae6d66fa40], txn-recover: Set global recovery timestamp: 0
+2023-09-21 10:12:34 item-db   | 2023-09-21T03:12:34.205+0000 I CONTROL  [initandlisten] 
+2023-09-21 10:12:34 item-db   | 2023-09-21T03:12:34.205+0000 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2023-09-21 10:12:33 item-app  | 
+2023-09-21 10:12:33 item-app  | > docker-software-delivery@1.0.0 start /app
+2023-09-21 10:12:33 item-app  | > node ./bin/www
+2023-09-21 10:12:33 item-app  | 
+2023-09-21 10:12:34 item-db   | 2023-09-21T03:12:34.205+0000 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2023-09-21 10:12:34 item-db   | 2023-09-21T03:12:34.206+0000 I CONTROL  [initandlisten] 
+2023-09-21 10:12:34 item-db   | 2023-09-21T03:12:34.209+0000 I CONTROL  [initandlisten] 
+2023-09-21 10:12:34 item-db   | 2023-09-21T03:12:34.209+0000 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
+2023-09-21 10:12:34 item-db   | 2023-09-21T03:12:34.209+0000 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+2023-09-21 10:12:34 item-db   | 2023-09-21T03:12:34.209+0000 I CONTROL  [initandlisten] 
+2023-09-21 10:12:34 item-db   | 2023-09-21T03:12:34.278+0000 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+2023-09-21 10:12:34 item-db   | 2023-09-21T03:12:34.287+0000 I NETWORK  [initandlisten] listening via socket bound to 0.0.0.0
+2023-09-21 10:12:34 item-db   | 2023-09-21T03:12:34.288+0000 I NETWORK  [initandlisten] listening via socket bound to /tmp/mongodb-27017.sock
+2023-09-21 10:12:34 item-db   | 2023-09-21T03:12:34.288+0000 I NETWORK  [initandlisten] waiting for connections on port 27017
+2023-09-21 10:12:39 item-app  | NODE_ENV: production
+2023-09-21 10:12:40 item-db   | 2023-09-21T03:12:40.049+0000 I NETWORK  [listener] connection accepted from 172.22.0.3:38346 #1 (1 connection now open)
+2023-09-21 10:12:40 item-db   | 2023-09-21T03:12:40.091+0000 I NETWORK  [conn1] received client metadata from 172.22.0.3:38346 conn1: { driver: { name: "nodejs", version: "2.2.36" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "5.10.16.3-microsoft-standard-WSL2" }, platform: "Node.js v14.21.3, LE, mongodb-core: 2.1.20" }
+2023-09-21 10:12:40 item-app  | Connected to database
+2023-09-21 10:12:51 item-app  | GET / 200 5874.452 ms - 785
+2023-09-21 10:12:51 item-app  | GET /javascripts/dist/dist.min.js 200 56.690 ms - 186999
+2023-09-21 10:12:51 item-app  | GET /stylesheets/style.css 200 414.698 ms - 519
+2023-09-21 10:12:52 item-app  | GET /favicon.ico 404 81.051 ms - 270
+2023-09-21 10:12:52 item-app  | GET /api 304 114.338 ms - -
+2023-09-21 10:12:59 item-app  | POST /api 201 127.611 ms - 51
+2023-09-21 10:13:07 item-app  | POST /api 201 3.030 ms - 50

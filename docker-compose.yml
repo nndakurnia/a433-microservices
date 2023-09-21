@@ -16,7 +16,7 @@ services:
       - ./:/app # menggunakan bind mount untuk memasang current directory di host
     environment:
       DB_HOST: item-db # container db host yg digunakan
-      MONGODB_URI: mongodb://item_db:27017 # connect to mongo db yg ada di dalam container
+      MONGODB_URI: mongodb://item-db:27017 # connect to mongo db yg ada di dalam container
       DB_NAME: item_db # definisikan nama db
     restart: always # restart policy agar container selalu restart ketika stop
 
