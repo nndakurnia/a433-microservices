@@ -10,8 +10,8 @@ jobs:
   lint-dockerfile:
     docker:
       # cimg/base: Ubuntu Docker image for operate build on CircleCI yg berisi tools pada Docker
-      # 2023.09 versi terbaru, Sept 6
-      - image: cimg/base:2023.09 
+      # 2023.12 versi terbaru, Dec 1, 2023
+      - image: cimg/base:2023.12
     steps:
       - checkout # checkout code yg akan dieksekusi
       - setup_remote_docker: # untuk mengeksekusi commands docker secara local on the virtual machine
@@ -25,7 +25,7 @@ jobs:
   test-app:
     docker:
     # cimg/go: image yg berisi Go programming language and its complete toolchain, spt go modules, dll.
-      - image: cimg/go:1.17
+      - image: cimg/go:1.21.5   # versi Dec 6, 2023
     steps:
       - checkout
       - run:
@@ -43,7 +43,7 @@ jobs:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     docker:
-      - image: cimg/base:2022.06
+      - image: cimg/base:2023.12
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
@@ -53,15 +53,15 @@ jobs:
       # login pake PAT yg udah didefinisikan di environment variable project CircleCI
       - run:
           name: Login Docker Github
-          command: echo $CR_PAT | docker login ghcr.io -u nndakurnia --password-stdin
+          command: echo $CR_PAT | docker login ghcr.io -u $USERNAME_DOCKER --password-stdin
       # build Docker image dari Dockerfile (name: <username-docker>/karsajobs:latest)
       - run:
           name: Build Docker Image
-          command: docker build -t ghcr.io/nndakurnia/karsajobs:latest .
+          command: docker build -t ghcr.io/${USERNAME_DOCKER}/karsajobs:latest .
       # mengunggah image ke github package
       - run:
           name: Push Docker Image
-          command: docker push ghcr.io/nndakurnia/karsajobs:latest
+          command: docker push ghcr.io/${USERNAME_DOCKER}/karsajobs:latest
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
