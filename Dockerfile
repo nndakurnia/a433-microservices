@@ -17,4 +17,4 @@ RUN npm ci
 EXPOSE $PORT
 
 # menjalankan server saat container diluncurkan
-CMD ["npm", "start"]
+CMD ["node", "index.js"]
