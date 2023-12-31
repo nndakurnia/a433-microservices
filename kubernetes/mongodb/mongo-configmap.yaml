@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mongo-config
+data:
+  # memperlakukan data sebagai file mongo.conf yang memiliki 
+  # properti storage dengan key dbPath dan nilai /data/db
+  mongo.conf: |
+    storage:
+      dbPath: /data/db

@@ -1,0 +1,7 @@
+tautan GitHub Packages
+karsajobs(backend): https://github.com/users/nndakurnia/packages/container/package/karsajobs
+karsajobs-ui(frontend): https://github.com/users/nndakurnia/packages/container/package/karsajobs-ui
+
+to use
+karsajobs(backend): docker pull ghcr.io/nndakurnia/karsajobs:latest
+karsajobs-ui(frontend): docker pull ghcr.io/nndakurnia/karsajobs-ui:latest

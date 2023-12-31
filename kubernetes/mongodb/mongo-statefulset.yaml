@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mongo-statefulset
+  labels:
+    app: mongodb
+spec:
+  selector:
+    matchLabels:
+      app: mongodb
+      tier: db
+  serviceName: mongo
+  replicas: 1
+  # jumlah waktu minimum yang diperlukan untuk pod menjadi "ready" setelah pembuatan atau pembaruan
+  minReadySeconds: 10
+  template:
+    metadata:
+      labels:
+        app: mongodb
+        tier: db
+    spec:
+      # menentukan jumlah waktu (dalam detik) yang diberikan kepada pod untuk menyelesaikan tugas sebelum dihentikan secara paksa
+      terminationGracePeriodSeconds: 10
+      containers:
+      # use Docker image mongo:3
+      - image: mongo:3
+        name: mongodb
+        # env seperti pada instruksi submission lainnya
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME_FILE
+          value: /etc/mongo-credentials/MONGO_ROOT_USERNAME
+        - name: MONGO_INITDB_ROOT_PASSWORD_FILE
+          value: /etc/mongo-credentials/MONGO_ROOT_PASSWORD
+        ports:
+        # port moongodb default
+        - containerPort: 27017
+          name: default-port
+        volumeMounts:
+        # Mount from Persistent Volume
+        - name: mount-pv
+          mountPath: /data/db
+        # Mount from ConfigMap
+        - name: mount-configmap
+          mountPath: /config
+        # Mount from Secret mongo-credentials
+        - name: mount-secret
+          mountPath: /etc/mongo-credentials
+      volumes:
+      # Prepare data volume using pvc
+      - name: mount-pv
+        persistentVolumeClaim:
+          claimName: mongo-pv-claim
+      # Bind config
+      - name: mount-configmap
+        configMap:
+            name: mongo-config
+      # Prepare secret volume
+      - name: mount-secret
+        secret:
+          secretName: mongo-secret

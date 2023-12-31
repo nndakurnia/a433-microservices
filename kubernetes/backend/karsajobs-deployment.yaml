@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  # deployment name for karsajobs backend
+  name: karsajobs
+  labels:
+    app: karsajobs
+    tier: backend
+spec:
+  # jumlah replica pod 1 untuk pod dg label tier:backend
+  replicas: 1
+  selector:
+    matchLabels:
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: karsajobs
+        tier: backend
+    spec:
+      containers:
+      # use image from github package and give it karsajobs name
+      - name: karsajobs
+        image: ghcr.io/nndakurnia/karsajobs:latest
+        # menentukan environment variable spt di instruksi submission lainnya
+        env:
+          # APP_PORT dengan nilai “8080”
+          - name: APP_PORT
+            value: "8080"
+          # MONGO_HOST dengan nilai yang diambil dari MongoDB Service
+          - name: MONGO_HOST
+            value: mongo-service
+          # MONGO_USER dengan nilai yang diambil dari MongoDB Secret (MONGO_ROOT_USERNAME)
+          - name: MONGO_USER
+            valueFrom: 
+              secretKeyRef:
+                name: mongo-secret
+                key: MONGO_ROOT_USERNAME
+          # MONGO_PASS dengan nilai yang diambil dari MongoDB Secret (MONGO_ROOT_PASSWORD)
+          - name: MONGO_PASS
+            valueFrom:
+              secretKeyRef:
+                name: mongo-secret
+                key: MONGO_ROOT_PASSWORD
+        ports:
+          - containerPort: 8080

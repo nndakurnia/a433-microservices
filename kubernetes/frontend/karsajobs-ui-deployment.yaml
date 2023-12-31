@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  # deployment name for karsajobs-ui
+  name: karsajobs-ui
+  labels:
+    app: karsajobs
+    tier: frontend
+spec:
+  # jumlah replica pod 1 untuk pod dg label tier:frontend
+  replicas: 1
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: karsajobs
+        tier: frontend
+    spec:
+        containers:
+        # use image from github package and give it karsajobs-ui name
+        - name: karsajobs-ui
+          image: ghcr.io/nndakurnia/karsajobs-ui:latest
+          # use backend karsajobs
+          # di lokal, service backend di port-forward dulu ke value berikut
+          env:
+            - name: VUE_APP_BACKEND
+              value: http://127.0.0.1:8080
+          ports:
+          - containerPort: 8000

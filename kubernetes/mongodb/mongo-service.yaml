@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-service
+  labels:
+    app: mongodb
+spec:
+  ports:
+  # default port untuk moongo
+  # target tidak ditulis eksplisit ga masalah sebenarnya
+  - port: 27017
+    targetPort: 27017
+  selector:
+    app: mongodb
+    tier: db
+  # properti clusterIP: None untuk membuat Headless Service
+  clusterIP: None
